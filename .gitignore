@@ -1,0 +1,15 @@
+# 敏感文件（永远不要提交）
+auth.json
+*.key
+*.pem
+.env
+.secrets/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

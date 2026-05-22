@@ -1,0 +1,39 @@
+model_provider = "CPA"
+model = "LongCat-2.0-Preview"
+model_reasoning_effort = "high"
+approval_policy = "never"
+personality = "pragmatic"
+
+[model_providers.CPA]
+name = "CPA"
+base_url = "http://127.0.0.1:8317/v1"
+experimental_bearer_token = "sk-XbHNZgNyRVpFqG1kd"
+requires_openai_auth = true
+
+[marketplaces.openai-bundled]
+last_updated = "2026-05-17T12:57:29Z"
+source_type = "local"
+source = "/Users/skingstyle/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[projects."/Users/skingstyle/Claude"]
+trust_level = "trusted"
+
+[features]
+memories = true
+
+[memories]
+generate_memories = true
+use_memories = true
+disable_on_external_context = true

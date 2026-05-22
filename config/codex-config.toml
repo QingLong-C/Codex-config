@@ -1,0 +1,127 @@
+# Codex 主配置文件模板
+# 复制到 ~/.codex/config.toml 后，替换所有 PLACEHOLDER 占位符
+
+approval_policy = "never"
+approvals_reviewer = "user"
+model = "LongCat-2.0-Preview"           # 默认模型
+model_provider = "CPA"                  # 对应 [model_providers.CPA]
+model_reasoning_effort = "high"         # 推理力度: low / medium / high
+personality = "pragmatic"               # AI 人格: casual / pragmatic / ...
+sandbox_mode = "danger-full-access"     # 沙箱模式
+service_tier = "fast"                   # 服务层级
+
+# 通知设置（Computer Use 完成时通知）
+notify = [
+    "/Users/sky/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient",
+    "turn-ended",
+]
+
+# === 桌面 UI ===
+[desktop]
+appearanceTheme = "system"
+conversationDetailMode = "STEPS_PROSE"
+followUpQueueMode = "steer"
+keepRemoteControlAwakeWhilePluggedIn = true
+preventSleepWhileRunning = true
+reviewDelivery = "inline"
+sansFontSize = 13
+codeFontSize = 13
+selected-avatar-id = "codex"
+ambient-suggestions-enabled = true
+default-service-tier = "priority"
+
+# === 功能开关 ===
+[features]
+js_repl = false
+memories = true
+
+# === 模型提供商 ===
+# CPA = CLIProxyAPI 本地代理
+[model_providers.CPA]
+name = "CPA"
+base_url = "http://127.0.0.1:8317/v1"
+experimental_bearer_token = "sk-YOUR_CPA_API_KEY"    # ⚠️ 替换为你的 CPA API key
+requires_openai_auth = true
+
+# === 市场（插件来源）===
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/YOUR_USER/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/YOUR_USER/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+# === MCP 服务器 ===
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/Codex.app/Contents/Resources/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_MARKETPLACE_NAME = "openai-bundled"
+CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
+CODEX_HOME = "/Users/YOUR_USER/.codex"
+NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/node"
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = ""
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/YOUR_USER/.codex"
+NODE_REPL_UNTRUSTED_ENV_ALLOWLIST = "BROWSER_USE_MARKETPLACE_NAME"
+SKY_CUA_SERVICE_PATH = "/Users/YOUR_USER/.codex/.tmp/bundled-marketplaces/openai-bundled/plugins/computer-use/Codex Computer Use.app"
+
+# === 记忆 ===
+[memories]
+disable_on_external_context = true
+generate_memories = true
+use_memories = true
+
+# === 插件 ===
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+# === 信任项目 ===
+[projects."/Users/YOUR_USER/projects"]
+trust_level = "trusted"
+
+# === 沙箱 ===
+[sandbox_workspace_write]
+exclude_slash_tmp = false
+exclude_tmpdir_env_var = false
+network_access = false
+writable_roots = ["/Users/YOUR_USER/.codex/memories"]
+
+# === Shell 环境变量 ===
+[shell_environment_policy]
+inherit = "core"
+
+[shell_environment_policy.set]
+BROWSER = "chrome"
+DISABLE_AUTOUPDATER = "1"
+DISABLE_UPDATES = "1"
+OPENAI_API_KEY = "sk-YOUR_OPENAI_KEY"           # ⚠️ 替换
+LONGCAT_API_KEY = "ak-YOUR_LONGCAT_KEY"          # ⚠️ 替换
+SILICONFLOW_API_KEY = "sk-YOUR_SILICONFLOW_KEY"  # ⚠️ 替换
+
+# === 禁用工具 ===
+[[tool_suggest.disabled_tools]]
+id = "gmail@openai-curated"
+type = "plugin"

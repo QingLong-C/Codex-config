@@ -1,0 +1,15 @@
+# Codex CLI 自定义 API 配置 - CPAMC
+# 模型: gpt-5.3-codex
+# 地址: http://127.0.0.1:8317/v1
+# 兼容 OpenAI Responses API 格式
+
+model_provider = "cpa"
+model = "gpt-5.3-codex"
+disable_response_storage = true
+model_reasoning_effort = "medium"
+
+[model_providers.cpa]
+name = "CPA"
+wire_api = "responses"
+requires_openai_auth = true
+base_url = "http://127.0.0.1:8317/v1"

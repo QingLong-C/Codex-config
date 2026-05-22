@@ -1,0 +1,70 @@
+# CLIProxyAPI 后端配置模板
+# 复制到 ~/.local/cli-proxy-api/config.yaml 后，替换所有 PLACEHOLDER
+
+# === 服务监听 ===
+host: "127.0.0.1"
+port: 8317
+
+# === 远程管理（管理面板）===
+remote-management:
+  allow-remote: false
+  secret-key: "$2a$10$PLACEHOLDER"    # ⚠️ 替换为 bcrypt hash
+  disable-control-panel: false
+
+# === OAuth ===
+auth-dir: "/Users/YOUR_USER/.cli-proxy-api"  # OAuth 账号文件存放目录
+auth-auto-refresh-workers: 16                # Token 自动刷新并发数
+
+# === 代理层 API Key（config.toml 中 experimental_bearer_token 填这个）===
+api-keys:
+  - sk-YOUR_CPA_API_KEY    # ⚠️ 替换
+
+# === 日志 ===
+debug: false
+logging-to-file: false
+request-retry: 3
+
+# === 代理 ===
+proxy-url: ""    # 如需 HTTP 代理，填写如 http://127.0.0.1:7890
+
+# === 配额超限行为 ===
+quota-exceeded:
+  switch-project: true
+  switch-preview-model: true
+  antigravity-credits: false
+
+# === 路由策略: round-robin | priority ===
+routing:
+  strategy: "round-robin"
+
+ws-auth: false
+
+# === 上游服务商 ===
+openai-compatibility:
+  # --- Provider 1: Longcat ---
+  - name: Longcat
+    priority: 1
+    base-url: https://api.longcat.chat/openai
+    api-key-entries:
+      - api-key: ak-YOUR_LONGCAT_KEY    # ⚠️ 替换
+    models:
+      - name: LongCat-2.0-Preview
+
+  # --- Provider 2: 商汤 ---
+  - name: 商汤
+    priority: 2
+    base-url: https://token.sensenova.cn/v1
+    api-key-entries:
+      - api-key: sk-YOUR_SENSENOVA_KEY  # ⚠️ 替换
+    models:
+      - name: deepseek-v4-flash
+      - name: sensenova-6.7-flash-lite
+
+  # --- 添加更多 Provider ---
+  # - name: Custom
+  #   priority: 3
+  #   base-url: https://your-api.example.com/v1
+  #   api-key-entries:
+  #     - api-key: sk-xxx
+  #   models:
+  #     - name: your-model-name

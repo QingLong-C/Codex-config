@@ -1,0 +1,27 @@
+{
+  "_comment": "OAuth 登录后 Codex 自动生成的 auth.json 结构示例",
+  "_path": "~/.codex/auth.json",
+  "_warning": "此文件包含敏感 token，切勿提交到 git",
+
+  "auth_mode": "chatgpt",
+  "OPENAI_API_KEY": null,
+  "tokens": {
+    "id_token": "eyJhbGciOiJSUzI1NiIs...（JWT，包含 email/plan/user_id 等 claims）",
+    "access_token": "eyJhbGciOiJSUzI1NiIs...（用于 API 请求的短期 token）",
+    "refresh_token": "rt.xxx...（用于刷新 access_token 的长期 token）",
+    "account_id": "01c5384f-a913-4768-9421-b318c58ad0ce"
+  },
+  "last_refresh": "2026-05-17T12:54:32Z"
+}
+
+/*
+ * Token 说明：
+ *
+ * - id_token: JWT 格式，解码后可获取用户 email、plan_type、user_id
+ * - access_token: 短期有效（通常 1 小时），用于实际 API 请求
+ * - refresh_token: 长期有效，access_token 过期后用于获取新的 token
+ * - account_id: ChatGPT 账号唯一标识
+ *
+ * CLIProxyAPI 的 OAuth 账号文件（~/.cli-proxy-api/codex-xxx.json）
+ * 结构类似，额外包含 email、expired、disabled、type 等字段
+ */
