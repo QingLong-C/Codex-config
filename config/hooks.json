@@ -1,7 +1,12 @@
 {
+  "_comment": "Codex Hooks 配置模板",
+  "_path": "~/.codex/hooks.json",
+  "_note": "以下路径为 OpenWolf 用户配置。普通用户可删除 PreToolUse/PostToolUse/SessionStart/Stop 中引用 .wolf/ 和 .claude/scripts/ 的钩子。",
+
   "hooks": {
     "PreToolUse": [
       {
+        "_comment": "Bash 命令走 RTK 代理省 token（可选，需安装 rtk）",
         "matcher": "Bash",
         "hooks": [
           {
@@ -11,6 +16,7 @@
         ]
       },
       {
+        "_comment": "OpenWolf 预读钩子（可选）",
         "matcher": "Read",
         "hooks": [
           {
@@ -21,6 +27,7 @@
         ]
       },
       {
+        "_comment": "OpenWolf 预写钩子（可选）",
         "matcher": "Write|Edit|MultiEdit",
         "hooks": [
           {
@@ -55,6 +62,7 @@
     ],
     "SessionStart": [
       {
+        "_comment": "OpenWolf 会话初始化（可选）",
         "hooks": [
           {
             "type": "command",
@@ -84,6 +92,7 @@
     ],
     "UserPromptSubmit": [
       {
+        "_comment": "OpenWolf 上下文提示（可选）",
         "hooks": [
           {
             "type": "command",

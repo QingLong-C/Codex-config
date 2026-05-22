@@ -9,7 +9,7 @@
     "id_token": "eyJhbGciOiJSUzI1NiIs...（JWT，包含 email/plan/user_id 等 claims）",
     "access_token": "eyJhbGciOiJSUzI1NiIs...（用于 API 请求的短期 token）",
     "refresh_token": "rt.xxx...（用于刷新 access_token 的长期 token）",
-    "account_id": "01c5384f-a913-4768-9421-b318c58ad0ce"
+    "account_id": "YOUR_ACCOUNT_ID"
   },
   "last_refresh": "2026-05-17T12:54:32Z"
 }

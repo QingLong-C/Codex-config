@@ -12,7 +12,7 @@ service_tier = "fast"                   # 服务层级
 
 # 通知设置（Computer Use 完成时通知）
 notify = [
-    "/Users/sky/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient",
+    "/Users/YOUR_USER/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient",
     "turn-ended",
 ]
 

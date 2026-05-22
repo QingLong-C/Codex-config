@@ -1,15 +1,42 @@
-# Codex CLI 自定义 API 配置 - CPAMC
-# 模型: gpt-5.3-codex
-# 地址: http://127.0.0.1:8317/v1
+# Codex CLI 自定义 API 配置 - CPA
 # 兼容 OpenAI Responses API 格式
+# 复制到 ~/.codex/config.toml 后使用
 
 model_provider = "cpa"
-model = "gpt-5.3-codex"
-disable_response_storage = true
-model_reasoning_effort = "medium"
+model = "LongCat-2.0-Preview"           # ⚠️ 替换为你的模型名
+model_reasoning_effort = "high"         # low / medium / high
+approval_policy = "never"
+personality = "pragmatic"
 
 [model_providers.cpa]
 name = "CPA"
 wire_api = "responses"
 requires_openai_auth = true
 base_url = "http://127.0.0.1:8317/v1"
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/YOUR_USER/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[projects."/Users/YOUR_USER/projects"]
+trust_level = "trusted"
+
+[features]
+memories = true
+
+[memories]
+generate_memories = true
+use_memories = true
+disable_on_external_context = true
