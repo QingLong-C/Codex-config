@@ -65,7 +65,7 @@ codex exec --skip-git-repo-check "reply with: ok"
     ├── codex-config.toml      # 主配置模板（脱敏，需替换 PLACEHOLDER）
     ├── cli-proxy-api.yaml     # 代理后端配置模板（脱敏）
     ├── hooks.json             # Hooks 配置模板
-    ├── auth.json.example      # OAuth auth.json 结构说明
+    ├── auth.json.example.md      # OAuth auth.json 结构说明
     └── codex-cpa.toml         # 精简版（兼容旧版）
 ```
 

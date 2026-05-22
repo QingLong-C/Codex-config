@@ -1,0 +1,14 @@
+# Hooks 配置说明
+# 本文件为 hooks.json 的配套说明，不参与实际配置
+#
+# 路径: ~/.codex/hooks.json
+#
+# 以下钩子为 OpenWolf 用户配置。普通用户可删除以下钩子：
+#   - PreToolUse (Bash): rtk hook claude（需安装 rtk）
+#   - PreToolUse (Read): pre-read.js（OpenWolf 预读钩子）
+#   - PreToolUse (Write/Edit): pre-write.js（OpenWolf 预写钩子）
+#   - PostToolUse (Read): post-read.js（OpenWolf 后读钩子）
+#   - PostToolUse (Write/Edit): post-write.js（OpenWolf 后写钩子）
+#   - SessionStart: session-start.sh, token-max-init.sh, session-start.js（OpenWolf 初始化）
+#   - UserPromptSubmit: wolf-context-hint.sh（OpenWolf 上下文提示）
+#   - Stop: token-rollup.sh, stop.js（OpenWolf 会话清理）
