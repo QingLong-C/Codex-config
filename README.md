@@ -30,18 +30,18 @@ Claude Code 会自动从本仓库下载配置、写入 `~/.codex/config.toml`、
 
 ```bash
 # 恢复 Codex 主配置
-curl -fsSL https://raw.githubusercontent.com/QingLong-C/codex-config/main/config/codex-config.toml \
+curl -fsSL https://raw.githubusercontent.com/QingLong-C/Codex-config/main/config/codex-config.toml \
   -o ~/.codex/config.toml
 
 # 恢复 CLIProxyAPI 后端配置
-curl -fsSL https://raw.githubusercontent.com/QingLong-C/codex-config/main/config/cli-proxy-api.yaml \
+curl -fsSL https://raw.githubusercontent.com/QingLong-C/Codex-config/main/config/cli-proxy-api.yaml \
   -o ~/.local/cli-proxy-api/config.yaml
 ```
 
 ### 方式三：git clone
 
 ```bash
-git clone https://github.com/QingLong-C/codex-config.git
+git clone https://github.com/QingLong-C/Codex-config.git
 cd codex-config
 cp config/codex-config.toml ~/.codex/config.toml
 cp config/cli-proxy-api.yaml ~/.local/cli-proxy-api/config.yaml
